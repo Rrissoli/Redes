@@ -1,0 +1,64 @@
+
+
+Conteudo
+
+Quando  falamos sobre redes , queremos nos referir as ligações que os computadores tem entre si.Exemplo quando pesquisamos 'google.com' nós estamos procurando um ip = endereçamento da maquina 
+pesquisamos com www.google.com porque esta maquina esta configurada para acessarmos através de uma url
+
+comando :'ipconfig' acho o ip da maquina local
+comando : 'ping' acho o ip da maquina que esta registrado  a url
+
+!!quem é responsavel por fazer esse mapeamento de ip >> url sao chamdos de servidores DNS!!
+
+Dentro das maquinas exitem o protocolo ICMP , que é utilizados para pegar informações de camadas de redes , muito utilizado para relatorios de erros
+
+o indice ttl é o limite de maquinas que ele vai passar ate chegar no servidor daquela url
+
+ferramenta administrativa para verifcar as maquinas intermediarias que passam pelo caminho ate a chegada no servidor
+
+com tracert -d www.google.com vemos as maquinas intermediarias e o tempo , para linuz traceroute
+
+------ fazendo conexão entre computadores e criando redes ------
+
+mudando o ip dos computadores conseguimos mandar ping para o outro via intranet 
+assim tembem como conseguimos mandar ping para nossa propria placa de rede pra relatorios  de erros com comand : ping 127.0.0.1
+
+como conseguimos descobrir o endereçamento ip total dos sites com nslookup alem de isolar os problemas de endereço
+
+
+conexoes com > 2 computadore utilizamos o hub 
+
+oq é o hub ?
+
+é uma central de compartilhamento de redeentre computadores , ligados por um cabo t568A e t568B
+computador - Hub - cabo direto 
+computador - computador - cabo cruzado
+a limitação do hub --> ele envia o requerimento para todos que estão conectados , isso deixa a segurança da informação frágil
+além da lentidao
+com protocolos tcp é simples fazer uma analise da requisição e conseguir dados
+dessa maneira , a comunidade de ti desenvolveu o protocolo de segurança pra requisições , e colocou , assim criando o TLS
+que criptografa as requisições
+
+
+OS SWITCHES ==> O hub e o switch tem o mesmo tipo de placa de rede , utilizamos um cabo direto tambem para pc - switch
+e o switch leva alguns segundo para habilitar as portas 
+diferente do hub que no final da requisição envia para todos os computadores os dados , o Switch ele entende qual porta  daquele computador q perguntou inicialmente , e devolve somente para ele 
+como ele faz isso, ele bate o endereço mac(o edereçamento de porta a qual o computador esta conectado) com o endereço de ip
+esse endereço mac é dinamico e muda a cada requisição 
+porem , esse endreçamento de mac fica salvo na memoria do switch , e isso que ocasiona o mal funcionamento dele , os hackers lotam de endereços mac falsos e o switch acaba confuso e envia a requisição para todos
+a mascara de rede surgiu para solucionar esse problema , a mascar com 255 ou 0 contendo seu corpo , sendo assim , com 255 na mascara o computador obriga a outra maquina a ter um endereço ip parecido
+e se for 0 pode ser outro numero distito , geralmente q vai distinguir os computadores dentro da rede
+
+
+
+
+Roteadores ==> ele conectará switches diferentes , cabo cruzado nesse caso, para usarmos o poder total do roteador , precisamos sempre configurar os ips no roteador 
+Gateway ==> temos que configurar o gateway no nosso computador, ou seja, direcionar a saída.
+
+   
+------------------------------------------------------------------------------
+
+CLASSES IPS ==> itervalo do primeiro octeto entr 1 - 126 (classe A) intervalo entre 128 e 191 (classe B) , intervalo 192 a 223 (classse C)
+
+
+
